@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if (($# != 1)); then
+  echo "Использование: $0 \"текст\"" >&2
+  exit 1
+fi
+
+text=$1
+width=$((${#text} + 2))
+printf -v border '%*s' "$width" ''
+border=${border// /-}
+
+printf '+%s+\n' "$border"
+printf '| %s |\n' "$text"
+printf '+%s+\n' "$border"

@@ -1,0 +1,33 @@
+## Задача 5
+
+Написать программу для регистрации пользовательской команды: задать правильные права доступа и скопировать программу в `/usr/local/bin`.
+
+### Решение
+
+```bash
+#!/usr/bin/env bash
+
+if (( $# != 1 )); then
+    echo "Использование: $0 программа" >&2
+    exit 1
+fi
+
+program=$1
+
+if [[ ! -f $program ]]; then
+    echo "Ошибка: файл '$program' не найден" >&2
+    exit 1
+fi
+
+chmod 755 -- "$program"
+sudo cp -- "$program" "/usr/local/bin/$(basename -- "$program")"
+
+echo "Команда $(basename -- "$program") зарегистрирована"
+```
+
+Пример запуска:
+
+```bash
+chmod +x reg
+./reg banner
+banner "Hello!"
