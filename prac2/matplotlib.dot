@@ -1,0 +1,26 @@
+digraph matplotlib_dependencies {
+    rankdir=LR;
+    graph [label="matplotlib — прямые зависимости", labelloc=t, fontsize=20];
+    node [shape=box, style="rounded"];
+
+    matplotlib [shape=ellipse, label="matplotlib"];
+    contourpy [label="contourpy >= 1.2.1"];
+    cycler [label="cycler >= 0.12.0"];
+    fonttools [label="fonttools >= 4.28.2"];
+    kiwisolver [label="kiwisolver >= 1.3.1"];
+    numpy [label="numpy >= 2.0"];
+    packaging [label="packaging >= 20.0"];
+    pillow [label="pillow >= 9"];
+    pyparsing [label="pyparsing >= 3"];
+    python_dateutil [label="python-dateutil >= 2.7"];
+
+    matplotlib -> contourpy;
+    matplotlib -> cycler;
+    matplotlib -> fonttools;
+    matplotlib -> kiwisolver;
+    matplotlib -> numpy;
+    matplotlib -> packaging;
+    matplotlib -> pillow;
+    matplotlib -> pyparsing;
+    matplotlib -> python_dateutil;
+}
